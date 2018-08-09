@@ -1,7 +1,8 @@
+#define CATCH_CONFIG_FAST_COMPILE
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <catch.hpp>
 
-#include "simple-serialization/serialization.h"
+#include "../include/simple-serialization/serialization.h"
 
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
