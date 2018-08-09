@@ -1,8 +1,9 @@
 ﻿#pragma once
 
+#include <map>
 #include <optional>
-#include <ostream>
 #include <string>
+#include <vector>
 
 /**
  * Serializes a string.

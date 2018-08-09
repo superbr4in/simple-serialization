@@ -4,6 +4,11 @@
 
 #include "../include/simple-serialization/serialization.h"
 
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <sstream>
+
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
     auto const str = sstream.str();
