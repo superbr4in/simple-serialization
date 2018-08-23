@@ -19,8 +19,8 @@ This project uses the **C++17** standard. Its entire implementation resides in h
 
 ### Usage
 
-For general use, `#include` the [`serialization.h`](../tree/master/include/simple-serialization/serialization.h) file into your project.
+For general use, `#include` the [`serialization.h`](../../tree/master/include/simple-serialization/serialization.h) file into your project.
 
 ### Testing
 
-In order to run the unit-tests, you need to compile the contents of the [`test/`](../tree/master/test) directory to an executable. Make sure to have the test framework [*Catch2*](https://github.com/catchorg/Catch2) installed.
+In order to run the unit-tests, you need to compile the contents of the [`test/`](../../tree/master/test) directory to an executable. Make sure to have the test framework [*Catch2*](https://github.com/catchorg/Catch2) installed.
