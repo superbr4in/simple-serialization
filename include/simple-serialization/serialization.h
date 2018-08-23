@@ -1,23 +1,8 @@
-﻿#pragma once
-#include <sstream>
+#pragma once
 
-namespace bin
-{
-    /**
-     * Serializes a generic value.
-     */
-    template <typename T>
-    void serialize(std::ostream& stream, T const& value)
-    {
-        stream.write(reinterpret_cast<char const*>(&value), sizeof value);
-    }
-
-    /**
-     * Deserializes a generic value.
-     */
-    template <typename T>
-    void deserialize(std::istream& stream, T& value)
-    {
-        stream.read(reinterpret_cast<char*>(&value), sizeof value);
-    }
-}
+#include "serialization_generic.h"
+#include "serialization_map.h"
+#include "serialization_optional.h"
+#include "serialization_pair.h"
+#include "serialization_string.h"
+#include "serialization_vector.h"

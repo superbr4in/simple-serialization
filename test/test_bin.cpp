@@ -3,11 +3,6 @@
 #include <catch.hpp>
 
 #include "../include/simple-serialization/serialization.h"
-#include "../include/simple-serialization/serialization_map.h"
-#include "../include/simple-serialization/serialization_optional.h"
-#include "../include/simple-serialization/serialization_pair.h"
-#include "../include/simple-serialization/serialization_string.h"
-#include "../include/simple-serialization/serialization_vector.h"
 
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
