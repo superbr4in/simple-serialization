@@ -3,11 +3,11 @@
 #include <catch.hpp>
 
 #include "../include/simple-serialization/serialization.h"
-
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <sstream>
+#include "../include/simple-serialization/serialization_map.h"
+#include "../include/simple-serialization/serialization_optional.h"
+#include "../include/simple-serialization/serialization_pair.h"
+#include "../include/simple-serialization/serialization_string.h"
+#include "../include/simple-serialization/serialization_vector.h"
 
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
@@ -46,7 +46,7 @@ static void print_buffer(std::vector<uint8_t> const& buffer)
     std::cout << "| = " << std::dec << buffer.size() << " bytes" << std::endl;
 }
 
-namespace serialization
+namespace test_serialization
 {
     TEST_CASE("serialize std::vector<std::optional<unsigned>>")
     {
@@ -54,7 +54,7 @@ namespace serialization
         std::vector<uint8_t> const out = { 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x05, 0x00, 0x00, 0x00, 0x01, 0xEF, 0x06, 0x02, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01, 0x2A, 0x00, 0x00, 0x00 };
 
         std::ostringstream sstream;
-        serialize(sstream, in);
+        bin::serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -67,7 +67,7 @@ namespace serialization
         std::vector<uint8_t> const out = { 0x74, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73, 0x20, 0x61, 0x20, 0x74, 0x65, 0x73, 0x74, 0x20, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x21, 0x40, 0x23, 0x24, 0x25, 0x5E, 0x26, 0x2A, 0x28, 0x29, 0x5F, 0x2B, 0x00 };
 
         std::ostringstream sstream;
-        serialize(sstream, in);
+        bin::serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -80,7 +80,7 @@ namespace serialization
         std::vector<uint8_t> const out = { 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFC, 0xFF, 0x00, 0x10, 0x00, 0x00, 0x18, 0x00, 0x01 };
 
         std::ostringstream sstream;
-        serialize(sstream, in);
+        bin::serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -88,7 +88,7 @@ namespace serialization
         REQUIRE(buffer == out);
     }
 }
-namespace deserialization
+namespace test_deserialization
 {
     TEST_CASE("deserialize std::vector<std::optional<unsigned>>")
     {
@@ -102,7 +102,7 @@ namespace deserialization
         *x = 7;
 
         std::vector<std::optional<unsigned>> container;
-        deserialize(sstream, container);
+        bin::deserialize(sstream, container);
 
         REQUIRE(container == out);
     }
@@ -115,7 +115,7 @@ namespace deserialization
         put_buffer(sstream, in);
 
         std::string string;
-        deserialize(sstream, string);
+        bin::deserialize(sstream, string);
 
         REQUIRE(string == out);
     }
@@ -128,7 +128,7 @@ namespace deserialization
         put_buffer(sstream, in);
 
         std::map<int16_t, bool> container;
-        deserialize(sstream, container);
+        bin::deserialize(sstream, container);
 
         REQUIRE(container == out);
     }
