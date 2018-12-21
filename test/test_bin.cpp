@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-#include "../include/simple-serialization/serialization.h"
+#include "../include/stored-bits/serialization.h"
 
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
