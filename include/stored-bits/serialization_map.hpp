@@ -3,7 +3,7 @@
 #include <map>
 #include <sstream>
 
-namespace bin
+namespace bit
 {
     template <typename T1, typename T2>
     void serialize(std::ostream& stream, std::pair<T1, T2> const& pair);

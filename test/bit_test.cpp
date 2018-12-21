@@ -4,6 +4,8 @@
 
 #include "../include/stored-bits/serialization.hpp"
 
+using namespace bit;
+
 static std::vector<uint8_t> get_buffer(std::ostringstream const& sstream)
 {
     auto const str = sstream.str();
@@ -49,7 +51,7 @@ namespace test_serialization
         std::vector<uint8_t> const out = { 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x05, 0x00, 0x00, 0x00, 0x01, 0xEF, 0x06, 0x02, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01, 0x2A, 0x00, 0x00, 0x00 };
 
         std::ostringstream sstream;
-        bin::serialize(sstream, in);
+        serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -62,7 +64,7 @@ namespace test_serialization
         std::vector<uint8_t> const out = { 0x74, 0x68, 0x69, 0x73, 0x20, 0x69, 0x73, 0x20, 0x61, 0x20, 0x74, 0x65, 0x73, 0x74, 0x20, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x21, 0x40, 0x23, 0x24, 0x25, 0x5E, 0x26, 0x2A, 0x28, 0x29, 0x5F, 0x2B, 0x00 };
 
         std::ostringstream sstream;
-        bin::serialize(sstream, in);
+        serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -75,7 +77,7 @@ namespace test_serialization
         std::vector<uint8_t> const out = { 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFC, 0xFF, 0x00, 0x10, 0x00, 0x00, 0x18, 0x00, 0x01 };
 
         std::ostringstream sstream;
-        bin::serialize(sstream, in);
+        serialize(sstream, in);
 
         auto const buffer = get_buffer(sstream);
 
@@ -97,7 +99,7 @@ namespace test_deserialization
         *x = 7;
 
         std::vector<std::optional<unsigned>> container;
-        bin::deserialize(sstream, container);
+        deserialize(sstream, container);
 
         REQUIRE(container == out);
     }
@@ -110,7 +112,7 @@ namespace test_deserialization
         put_buffer(sstream, in);
 
         std::string string;
-        bin::deserialize(sstream, string);
+        deserialize(sstream, string);
 
         REQUIRE(string == out);
     }
@@ -123,7 +125,7 @@ namespace test_deserialization
         put_buffer(sstream, in);
 
         std::map<int16_t, bool> container;
-        bin::deserialize(sstream, container);
+        deserialize(sstream, container);
 
         REQUIRE(container == out);
     }

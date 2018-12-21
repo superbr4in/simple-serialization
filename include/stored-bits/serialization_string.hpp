@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 
-namespace bin
+namespace bit
 {
     /*!
      *  Serializes a string.

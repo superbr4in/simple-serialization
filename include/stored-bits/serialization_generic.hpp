@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-namespace bin
+namespace bit
 {
     /*!
      *  Serializes a generic value.

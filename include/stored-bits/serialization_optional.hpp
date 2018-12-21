@@ -3,7 +3,7 @@
 #include <optional>
 #include <sstream>
 
-namespace bin
+namespace bit
 {
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
