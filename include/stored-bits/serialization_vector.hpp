@@ -1,6 +1,6 @@
 #pragma once
-#include <sstream>
 
+#include <sstream>
 #include <vector>
 
 namespace bin
@@ -8,8 +8,8 @@ namespace bin
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
 
-    /**
-     * Serializes a generic vector.
+    /*!
+     *  Serializes a generic vector.
      */
     template <typename T>
     void serialize(std::ostream& stream, std::vector<T> const& vector)
@@ -22,8 +22,8 @@ namespace bin
     template <typename T>
     void deserialize(std::istream& stream, T& value);
 
-    /**
-     * Deserializes a generic vector.
+    /*!
+     *  Deserializes a generic vector.
      */
     template <typename T>
     void deserialize(std::istream& stream, std::vector<T>& vector)

@@ -1,15 +1,14 @@
 #pragma once
-#include <sstream>
 
-#include <utility>
+#include <sstream>
 
 namespace bin
 {
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
 
-    /**
-     * Serializes a generic value pair.
+    /*!
+     *  Serializes a generic value pair.
      */
     template <typename T1, typename T2>
     void serialize(std::ostream& stream, std::pair<T1, T2> const& pair)
@@ -21,8 +20,8 @@ namespace bin
     template <typename T>
     void deserialize(std::istream& stream, T& value);
 
-    /**
-     * Deserializes a generic value pair.
+    /*!
+     *  Deserializes a generic value pair.
      */
     template <typename T1, typename T2>
     void deserialize(std::istream& stream, std::pair<T1, T2>& pair)

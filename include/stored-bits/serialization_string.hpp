@@ -1,12 +1,12 @@
 #pragma once
-#include <sstream>
 
+#include <sstream>
 #include <string>
 
 namespace bin
 {
-    /**
-     * Serializes a string.
+    /*!
+     *  Serializes a string.
      */
     inline void serialize(std::ostream& stream, std::string const& string)
     {
@@ -14,8 +14,8 @@ namespace bin
         stream.put('\0');
     }
 
-    /**
-     * Deserializes a string.
+    /*!
+     *  Deserializes a string.
      */
     inline void deserialize(std::istream& stream, std::string& string)
     {

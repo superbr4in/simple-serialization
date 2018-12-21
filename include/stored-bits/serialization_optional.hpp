@@ -1,15 +1,15 @@
 #pragma once
-#include <sstream>
 
 #include <optional>
+#include <sstream>
 
 namespace bin
 {
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
 
-    /**
-     * Serializes a generic optional value.
+    /*!
+     *  Serializes a generic optional value.
      */
     template <typename T>
     void serialize(std::ostream& stream, std::optional<T> const& optional)
@@ -24,8 +24,8 @@ namespace bin
     template <typename T>
     void deserialize(std::istream& stream, T& value);
 
-    /**
-     * Deserializes a generic optional value.
+    /*!
+     *  Deserializes a generic optional value.
      */
     template <typename T>
     void deserialize(std::istream& stream, std::optional<T>& optional)
