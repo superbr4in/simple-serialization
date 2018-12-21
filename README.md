@@ -1,4 +1,4 @@
-# Simple-Serialization
+# Stored-Bits
 
 Lightweight C++ library for binary serialization
 
