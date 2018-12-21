@@ -5,8 +5,17 @@
 
 namespace bit
 {
+    template <typename T>
+    void serialize(std::ostream& stream, T const& value);
+
     template <typename T1, typename T2>
     void serialize(std::ostream& stream, std::pair<T1, T2> const& pair);
+
+    template <typename T>
+    void deserialize(std::istream& stream, T& value);
+
+    template <typename T1, typename T2>
+    void deserialize(std::istream& stream, std::pair<T1, T2>& pair);
 
     /*!
      *  Serializes a generic map.
@@ -18,9 +27,6 @@ namespace bit
         for (auto const& elem : map)
             serialize(stream, elem);
     }
-
-    template <typename T1, typename T2>
-    void deserialize(std::istream& stream, std::pair<T1, T2>& pair);
 
     /*!
      *  Deserializes a generic map.

@@ -8,6 +8,9 @@ namespace bit
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
 
+    template <typename T>
+    void deserialize(std::istream& stream, T& value);
+
     /*!
      *  Serializes a generic optional value.
      */
@@ -20,9 +23,6 @@ namespace bit
         if (has_value)
             serialize(stream, *optional);
     }
-
-    template <typename T>
-    void deserialize(std::istream& stream, T& value);
 
     /*!
      *  Deserializes a generic optional value.

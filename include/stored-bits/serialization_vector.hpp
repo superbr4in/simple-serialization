@@ -8,6 +8,9 @@ namespace bit
     template <typename T>
     void serialize(std::ostream& stream, T const& value);
 
+    template <typename T>
+    void deserialize(std::istream& stream, T& value);
+
     /*!
      *  Serializes a generic vector.
      */
@@ -18,9 +21,6 @@ namespace bit
         for (auto const& elem : vector)
             serialize(stream, elem);
     }
-
-    template <typename T>
-    void deserialize(std::istream& stream, T& value);
 
     /*!
      *  Deserializes a generic vector.
