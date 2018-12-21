@@ -1,6 +1,6 @@
 # Stored-Bits
 
-Lightweight C++ library for binary serialization
+Simple C++ binary serialization
 
 ## Features
 
